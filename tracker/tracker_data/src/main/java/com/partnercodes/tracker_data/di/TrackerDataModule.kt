@@ -1,5 +1,8 @@
 package com.partnercodes.tracker_data.di
 
+import android.app.Application
+import androidx.room.Room
+import com.partnercodes.tracker_data.local.TrackerDatabase
 import com.partnercodes.tracker_data.remote.OpenFoodApi
 import dagger.Module
 import dagger.Provides
@@ -29,4 +32,11 @@ class TrackerDataModule {
         return Retrofit.Builder().baseUrl(OpenFoodApi.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create()).client(client).build().create()
     }
+
+    @Provides
+    @Singleton
+    fun provideTrackerDatabase(app:Application): TrackerDatabase{
+        return Room.databaseBuilder(app, TrackerDatabase::class.java, "tracker_db").build()
+    }
+
 }
