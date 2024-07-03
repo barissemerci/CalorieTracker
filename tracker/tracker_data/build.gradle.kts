@@ -9,6 +9,8 @@ android {
     namespace = "com.partnercodes.tracker_data"
 }
 
+
+
 dependencies {
     implementation(project(Modules.core))
     implementation(project(Modules.trackerDomain))
@@ -19,6 +21,6 @@ dependencies {
     implementation(Retrofit.moshiConverter)
 
     "kapt"(Room.roomCompiler)
-    implementation(Room.roomKtx)
-    implementation(Room.roomRuntime)
+    "api"(Room.roomKtx)
+    "api"(Room.roomRuntime)
 }
