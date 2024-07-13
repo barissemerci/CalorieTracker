@@ -38,7 +38,7 @@ fun UnitDisplay(
             text = unit,
             style = MaterialTheme.typography.body1,
             color = unitColor,
-            fontSize = amountTextSize,
+            fontSize = unitTextSize,
             modifier = Modifier.alignBy(LastBaseline)
         )
 
