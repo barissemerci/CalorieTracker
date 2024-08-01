@@ -55,6 +55,7 @@ fun SearchTextField(
                 }
             ),
             keyboardOptions = KeyboardOptions(
+
                 imeAction = ImeAction.Search
             ),
             modifier = Modifier
