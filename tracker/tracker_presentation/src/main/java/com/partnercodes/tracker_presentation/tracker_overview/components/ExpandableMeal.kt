@@ -101,7 +101,7 @@ fun ExpandableMeal(
                             name = stringResource(id = R.string.protein),
                             amount = meal.protein,
                             unit = stringResource(
-                                id = R.string.protein
+                                id = R.string.grams
                             )
                         )
                         Spacer(modifier = Modifier.width(spacing.spaceSmall))
