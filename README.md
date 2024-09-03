@@ -17,4 +17,5 @@ With the Calorie Tracker, you can monitor your daily calorie intake with a perso
 - Retrofit
 - Room
 - Mockk
+- MockWebServer
 - Truth
