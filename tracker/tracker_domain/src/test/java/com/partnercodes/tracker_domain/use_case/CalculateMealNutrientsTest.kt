@@ -73,5 +73,39 @@ class CalculateMealNutrientsTest {
 
     }
 
+    @Test
+    fun `Carbs for diner properly calculated`() {
+        val trackedFoods = (1..30).map {
+            TrackedFood(
+                name = "name",
+                carbs = Random.nextInt(100),
+                protein = Random.nextInt(100),
+                fat = Random.nextInt(100),
+                mealType = MealType.fromString(
+                    listOf(
+                        "breakfast",
+                        "lunch",
+                        "dinner",
+                        "snack"
+                    ).random()
+                ),
+                imageUrl = null,
+                amount = 100,
+                date = LocalDate.now(),
+                calories = Random.nextInt(2000)
+            )
+        }
+        val result = calculateMealNutrients(trackedFoods)
+        val dinnerCarbs =
+            result.mealNutrients.values.filter { it.mealType is MealType.Dinner }.sumOf {
+                it.carbs
+            }
+        val expectedCarbs = trackedFoods.filter { it.mealType is MealType.Dinner }.sumOf {
+            it.carbs
+        }
+        assertThat(dinnerCarbs).isEqualTo(expectedCarbs)
+
+    }
+
 
 }
